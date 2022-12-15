@@ -1,0 +1,177 @@
+<html>
+<head>
+<title>Checkout</title>  
+<style>
+td{text-align:right;}
+</style>
+<script language="javascript" src="cookiemngr.js" ></script>
+<script language="javascript" src="localstoragemngr.js" ></script>
+<script type='text/javascript'>
+var shipment=0
+function getselected(id)
+{
+		var sel1=document.getElementById(id);
+		var index=sel1.selectedIndex;
+		var text=sel1.options[index].text;
+		var shipvalue=sel1.options[index].value;
+		//alert(id +':'+index+':'+ text+":"+text2);
+		var x=document.getElementById('ttotal');
+		x.innerHTML=parseInt(taxamount())+subtotal()+parseInt(shipvalue);
+}
+</script>
+<script type="text/javascript">
+var subtotal1=0;
+var subtotal2=0
+var subtotal3=0
+var subtotal4=0
+var subtotal5=0
+var subtotal6=0
+function cart()
+{
+   var qty1=parseFloat(getCookie("hp15"));
+   var qty2=parseFloat(getCookie("acer17"));
+   var qty3=parseFloat(getCookie("dellInspiron"));
+   var qty4=parseFloat(getCookie("iphone"));
+   var qty5=parseFloat(getCookie("samsung"));
+   var qty6=parseFloat(getCookie("lg"));
+   
+   subtotal1=0;
+   subtotal2=0;
+   subtotal3=0;
+   subtotal4=0;
+   subtotal5=0;
+   subtotal6=0;
+   var total;
+   if(!isNaN(qty1))
+   {   
+   var cost1=449.99;
+   subtotal1=cost1*qty1
+   document.writeln("<tr><td>hp15</td><td>");
+   document.writeln(qty1)
+   document.writeln("</td><td>");
+   document.writeln(cost1);
+   document.writeln("</td><td>");
+   document.writeln(subtotal1);
+   document.writeln("</td></tr>");
+   }
+   
+   if(!isNaN(qty2))
+   {   
+   var cost2=579.99;
+   subtotal2=cost2 *qty2;
+   document.writeln("<tr><td>acer17</td><td>");
+   document.writeln(qty2);
+   document.writeln("</td><td>");
+   document.writeln(cost2);
+   document.writeln("</td><td>");
+   document.writeln(subtotal2);
+   document.writeln("</td></tr>");
+   }
+    if(!isNaN(qty3))
+   {   
+   var cost3=549.99;
+   subtotal3=cost3*qty3
+   document.writeln("<tr><td>dellinspiron</td><td>");
+   document.writeln(qty3)
+   document.writeln("</td><td>");
+   document.writeln(cost3);
+   document.writeln("</td><td>");
+   document.writeln(subtotal3);
+   document.writeln("</td></tr>");
+   }
+   if(!isNaN(qty4))
+   {   
+   var cost4=649.99;
+   subtotal4=cost4 *qty4;
+   document.writeln("<tr><td>iphone</td><td>");
+   document.writeln(qty4);
+   document.writeln("</td><td>");
+   document.writeln(cost4);
+   document.writeln("</td><td>");
+   document.writeln(subtotal4);
+   document.writeln("</td></tr>");
+   }
+    if(!isNaN(qty5))
+   {   
+   var cost5=699.99;
+   subtotal5=cost5*qty5
+   document.writeln("<tr><td>samsung</td><td>");
+   document.writeln(qty5)
+   document.writeln("</td><td>");
+   document.writeln(cost5);
+   document.writeln("</td><td>");
+   document.writeln(subtotal5);
+   document.writeln("</td></tr>");
+   }
+   if(!isNaN(qty6))
+   {   
+   var cost6=429.99;
+   subtotal6=cost6 *qty6;
+   document.writeln("<tr><td>lg</td><td>");
+   document.writeln(qty6);
+   document.writeln("</td><td>");
+   document.writeln(cost6);
+   document.writeln("</td><td>");
+   document.writeln(subtotal6);
+   document.writeln("</td></tr>");
+   }
+   if(!isNaN(qty1) || !isNaN(qty2) || !isNaN(qty3) || !isNaN(qty4)|| !isNaN(qty5) || !isNaN(qty6) ) 
+   {   
+	document.writeln("<tr><td colspan='3' >SUBTOTAL</td><td>");
+	document.writeln(subtotal());
+	document.writeln("</td></tr>");
+	document.writeln("<tr><td colspan='3' >TAX AMOUNT(8.5%)</td><td>");
+	document.writeln(parseInt(taxamount()));
+	document.writeln("</td></tr>");
+	document.writeln("<tr><td colspan='3' >TOTAL</td><td>");
+	document.writeln(parseInt(taxamount())+subtotal());
+	document.writeln("</td></tr>");  
+   }
+}
+
+function subtotal()
+{
+   var total=subtotal1+subtotal2+subtotal3+subtotal4+subtotal5+subtotal6;
+   //alert(total); 
+   return (total);
+}
+
+function taxamount()
+{
+	return .085 * (subtotal1+subtotal2+subtotal3+subtotal4+subtotal5+subtotal6);
+}
+
+function updateqty(item)
+{
+	itemid=item.id+"qty"
+	var newqty=parseInt(document.getElementById(itemid).value);
+	setCookie(item.id,newqty,30);
+	location.reload();
+} 
+</script>
+</head>
+<body>
+<table>
+<tr><td>NAME</td><td>QTY</td><td>COST</td><td>SUBTOTAL</td></tr>
+<script type="text/javascript">
+cart();
+</script>
+	<tr><td>Cost with Shipping: </td>
+	<td width='50'>
+		<select NAME='ship' id='ship'>
+			<OPTION VALUE='' selected ></option>
+			<OPTION VALUE='0'>Standard-$0</option>
+			<OPTION VALUE='5'>Express-$5</option>
+			<OPTION VALUE='10'>Overnight-$10</option>
+		</select></td><td width='50'>
+
+		<INPUT TYPE='button' NAME='button' Value='Select' onClick="getselected('ship')">
+	</td>
+	<td>
+	<div id='ttotal'></div>
+	</td>
+	</tr>
+	</table>
+<a href="cart.html">View Cart</a>&nbsp;<a href="thankyou.html">Place Order</a>
+</body>
+</html>

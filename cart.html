@@ -1,0 +1,135 @@
+<html>
+<head>
+<title>Checkout</title>
+<style>
+td{text-align:right; border: solid blue 2px;}
+</style>
+<script language="javascript" src="localstoragemngr.js"></script>
+<script type="text/javascript" src="cookiemngr.js"></script>
+<script type="text/javascript">
+function cart2()
+{
+	var str="";
+	var items=["hp15","acer17","dellinspiron","iphone","samsung ","lg"]; 
+	var prices=[449.99,579.99,549.99,649.99,699.99,429.99];
+	var total=0;
+	if (document.cookie.length==0)
+	{
+		 str="Web Cart Empty";
+		 str+="<br /><a href='products1.html'>Back to Laptop Shopping</a>&nbsp;";
+		 
+	}
+	else
+	{
+		str +="<form><table><tr><td>NAME</td><td>QTY</td><td>COST</td><td>SUBTOTAL</td></tr>";
+		for(var i=0;i<items.length;i++)
+		{
+			qty=parseInt(getCookie(items[i]));
+			//alert(parseInt(qty));
+			if(!isNaN(qty))
+			{   
+			var itemqtyname=items[i]+"qty";
+			var cost=prices[i];
+			subtotal=prices[i]*qty;
+			total=total+subtotal;
+			str +="<tr><td>"+items[i]+"</td><td>";
+			str +="<input type='text' value='"+qty+"' id='"+itemqtyname+"' maxlength='2' size='2'/>";
+			str +="<input type='button' value='update' id='"+items[i]+"' onclick='updateqty(this)';/>";
+			str +="</td><td>";
+			str +=cost.toFixed(2);
+			str +="</td><td>";
+			str +=subtotal.toFixed(2);
+			str +="</td></tr>";
+			}
+		}
+		if(total !=0 ) 
+		{   
+		str +="<tr><td colspan='3' >SUBTOTAL</td><td>";
+		str +=total.toFixed(2);
+		str +="</td></tr>"; 
+		} 
+		str+="</table></form>";
+		str+="<a href='products1.html'>Back to Shopping</a>&nbsp;<a href='checkout2.html'>Checkout</a>";
+		
+	}
+	document.getElementById("carthere").innerHTML=str;
+}
+
+function updateqty(item)
+{
+	var days=30;
+	itemid=item.id+"qty"
+	var newqty=parseInt(document.getElementById(itemid).value);
+	if (newqty==0)
+	{
+	   //alert("deleting:"+item.id); 
+	   setCookie(item.id,"",-1); 
+	}
+	else setCookie(item.id,newqty,30);
+	location.reload();
+	location.href="cart.html";
+} 
+</script>
+<title>HomePage</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a href="index.html">Alltech Electronics</span></a></h1>
+          <h2>Best electronics store and faster delivery</h2>
+        </div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products1.html">Laptops</a></li>
+          <li><a href="products2.html">Mobile</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+		   <li class="selected"><a href="cart.html">Cart</a></li>
+		  <li><a href="login.html">Login</a></li>
+        </ul>
+      </div>
+    </div>
+	
+
+</body>
+<div id="site_content">
+      
+	  <body onload="cart2();">
+
+<div align="center" id="carthere"></div>
+	  
+      <div id="content">
+		<ul>
+        <h1>Welcome to Alltech Electronics</h1>
+        <p>All tech puts resources at your fingertips that are unmatched not just by other stores, but by the biggest electronic component store in the country. Alltech electronics represents some of the world's leading stores of high reliability laptops and cellphones.</p>
+        <p>Alltech electronics is an online company based in New York City that has been selling latest laptops and cellphones for more than 60 years.</p>
+        <p>Alltech electric is the most reliable electronics store. We have the best customer service for your help 24/7.</p>
+        <p>Your satisfaction is our top priority.</p>
+        
+        </ul>
+      </div>
+    </div>
+    
+    <div id="footer">
+      <p><a href="cart.html"></a> | <a href="examples.html">Examples</a> | <a href="page.html">A Page</a> | <a href="another_page.html">Another Page</a> | <a href="contact.html">Contact Us</a></p>
+      
+    </div>
+  </div>
+<div style="text-align: center; font-size: 0.75em;">Design downloaded from <a href="http://www.freewebtemplates.com/">free website templates</a>.</div></body>
+</html>
+
+</head>
+
+
+</html>

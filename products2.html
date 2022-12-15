@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+<script language="javascript" src="localstoragemngr.js"></script>
+
+<head>
+  <title>Phones</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script type="text/javascript" src="localstoragemngr.js"></script>
+   <script type="text/javascript" src="cookiemngr.js"></script>
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a href="index.html">Alltech Electronics</a></h1>
+          <h2>Best electronics store and faster delivery</h2>
+        </div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products1.html">Laptops</a></li>
+          <li class="selected"><a href="products2.html">Mobile</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+		  <li><a href="cart.html">Cart</a></li>
+		  <li><a href="login.html">Login</a></li>
+        </ul>
+      </div>
+    </div>
+	<div id="site_content">
+    <div id="content">
+		<div id="holder1" >
+		  <img src="products/Phone1_iphone7.jpg"/>
+		  <div id="product"><p>Apple - iPhone 7 32GB - Black </p></div>
+		  <div id="description"> <p>12MP camera with an ƒ/1.8 aperture</br>
+							Optical image stabilization. </br>
+							A 4.7-inch Retina HD display </br>
+							An A10 Fusion chip</br>
+							Touch ID. Faster LTE. The longest battery life</p>
+		  <div id="cart_button"><input type="button" value="Add to Cart" 
+		            onclick="alert('Added to cart');setCookie('iphone',1,30);alert('Added to cart');alert(getCookie('iphone'));" /></div>
+		</div>
+		  
+        </div>
+		<div id="holder2">
+        <img src="products/Phone2_samsung.jpg"/>
+		<div id="product"><p>Samsung - Galaxy S7 32GB - Black Onyx </p></div>
+		<div id="description"> <p>a great screen and a powerful processor</br>
+						Built to withstand dunks in water for up to 30 minutes</br>
+						A 5.1-inch touchscreen. </br>
+						A quad-core processor for ultra-fast responsiveness.</p>
+		 <div id="cart_button"><input type="button" value="Add to Cart" 
+		            onclick="alert('Added to cart');setCookie('samsung',1,30);alert('Added to cart');alert(getCookie('samsung'));" /></div>
+		</div>
+		<div id="holder3">
+        <img src="products/Phone3_lg.jpg"/>
+		<div id="product"><p>LG - G5 with 32GB Memory</p></div>
+		<div id="description"> <p>Capture 360-degree virtual reality videos</br>
+							The modular design features a slide-out battery </br>
+							space for the camera grip add-on. </br>
+							The always-on display of the LG G5 smartphone lets you see the time, </br>
+							date and important notifications at a glance</br>
+							without waking the phone</p>
+		<div id="cart_button"><input type="button" value="Add to Cart" 
+		            onclick="alert('Added to cart');setCookie('lg',1,30);alert('Added to cart');alert(getCookie('lg'));" /></div>
+		   <BR />
+           
+		   <center><a href="cart.html">View Cart</a></center>
+		</div>
+		</div>
+		</div>
+		</div>	
+    <div id="footer">
+      <p><a href="index.html">Home</a> | <a href="examples.html">Examples</a> | <a href="page.html">A Page</a> | <a href="another_page.html">Another Page</a> | <a href="contact.html">Contact Us</a></p>
+      <p>Copyright &copy; simplestyle_5 | <a href="http://validator.w3.org/check?uri=referer">HTML5</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> | <a href="http://www.html5webtemplates.co.uk">design from HTML5webtemplates.co.uk</a></p>
+    </div>
+  </div>
+<div style="text-align: center; font-size: 0.75em;">Design downloaded from <a href="http://www.freewebtemplates.com/">free website templates</a>.</div></body>
+</html>
